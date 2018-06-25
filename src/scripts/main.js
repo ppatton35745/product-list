@@ -1,22 +1,44 @@
+const data = require("./data.js");
+
 $(document).ready(function () {
 
-    $("#load-songs").on("click", function (e) {
-        $.ajax("songs.json")
-            .then(response => {
-                //songObj = JSON.parse(response);
-                response.songs.forEach(element => {
-                    //const section = $("<section></section>").addClass("song");
-                    $("#song-list")
-                        .append($("<section class='song'></section>")
-                            .append($(`<h1 class='song__title'>${element.title}</h1>`))
-                            .append($("<section class='song__description'></section>")
-                                .text(`Performed by ${element.artist} on the album ${element.album}`)
-                            )
-                        )
-                });
-            })
-    })
+    //songObj = JSON.parse(response);
+    for (let productKey in data.products) {
+
+        let product = data.products[productKey];
+        let reviews = data.reviews[productKey];
+
+        $("#products")
+            .append($("<section class='product'></section>")
+                .append($(`<h1 class='product_title'>${product.title}</h1>`))
+                .append($("<section class='product_description'></section>")
+                    .text(`We have ${product.quantity} ${product.description} that cost ${product.quantity} each`)
+                )
+            )
+
+        if(reviews){
+            $("#products")
+                .append($("<section class='reviewSection'></section>")
+                    .append($("<h1 class='review_title'>Reviews</h1>"))
+                    .append($("<section class='reviews'></section>"))
+                )
+
+            reviews.forEach(review => {
+                $("#products .reviewSection .reviews").append(review);
+            });
+        }
+
+    }
 })
+
+
+// products: [{
+//     title: "ball",
+//     description: "bouncy ball",
+//     price: 10.99,
+//     quantity: 4,
+//     img: "my/ball/URL"
+// },
 
 // Practice: Product Ordering
 // Your task is to simulate a product listing page like you would find on Etsy, Amazon, or Ebay. This application should implement the following features.
