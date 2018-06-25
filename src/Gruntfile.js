@@ -40,11 +40,6 @@ module.exports = function(grunt) {
             expand: true,
             src: "styles/*",
             dest: "../dist"
-          },
-          {
-            expand: true,
-            src: "songs.json",
-            dest: "../dist/"
           }
         ]
       }
