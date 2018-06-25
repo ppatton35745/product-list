@@ -1,4 +1,44 @@
-body {
-  background-color: blueviolet;
-  color: white;
+* {
+  box-sizing: border-box;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  padding: 0;
+}
+
+.nav ul .categories {
+  /* flex: flex-grow flex-shrink flex-basis */
+  order: 0;
+  flex-grow: 1;
+  flex-shrink: 1; 
+  flex-basis: 30%;
+  align-self: center;
+  background: yellow;
+}
+
+.nav ul .orders {
+  /* flex: flex-grow flex-shrink flex-basis */
+  order: 1;
+  /* flex-grow: 1; */
+  flex-shrink: 0; 
+  margin-left: 10px;
+  flex-basis: 30%;
+  align-self: center;
+  background: red;
+}
+
+.nav ul .logOut {
+  /* flex: flex-grow flex-shrink flex-basis */
+  order: 2;
+  /* flex-grow: 1; */
+  flex-shrink: 0;
+  flex-basis: 30%;
+  align-self: center;
+  background: blue;
 }
